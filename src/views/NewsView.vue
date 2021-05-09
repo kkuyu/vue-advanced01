@@ -7,11 +7,6 @@
 
 <script>
 export default {
-	data() {
-		return {
-			news: [],
-		};
-	},
 	created() {
 		this.$store.dispatch("FETCH_NEWS");
 	},
