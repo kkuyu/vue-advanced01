@@ -13,9 +13,9 @@ export const router = new VueRouter({
 	mode: "history",
 	routes: [
 		{ path: "/", redirect: "/news" },
-		{ path: "/news", component: NewsView },
-		{ path: "/jobs", component: JobsView },
-		{ path: "/ask", component: AskView },
+		{ path: "/news", name: "news", component: NewsView },
+		{ path: "/jobs", name: "jobs", component: JobsView },
+		{ path: "/ask", name: "ask", component: AskView },
 		{ path: "/item/:id", component: ItemView },
 		{ path: "/user/:id", component: UserView },
 	],
