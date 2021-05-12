@@ -4,11 +4,11 @@
       <i class="fas fa-user"></i>
     </div>
     <div class="user-description">
-      <div>{{ info.id }}</div>
-      <!-- <router-link :to="`/user/${info.user}`">
-        {{info.user}}
-      </router-link> -->
-      <div class="time">{{ info.created }}</div>
+      <slot name="username"></slot>
+      <div class="time">
+        <slot name="time"></slot>
+        <slot name="karma"></slot>
+      </div>
     </div>
   </div>
 </template>
