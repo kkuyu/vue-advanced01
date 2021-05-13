@@ -43,22 +43,6 @@ export default {
 			return this.$store.state[keyName];
 		},
 	},
-	created() {
-		let actionName = '';
-		switch (this.$route.name) {
-			case 'news':
-				actionName = "FETCH_NEWS";
-				break;
-			case 'jobs':
-				actionName = "FETCH_JOBS";
-				break;
-			case 'ask':
-				actionName = "FETCH_ASK";
-				break;
-		}
-		if (!actionName) return;
-		this.$store.dispatch(actionName);
-	},
 }
 </script>
 
