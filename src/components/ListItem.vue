@@ -27,20 +27,7 @@
 export default {
 	computed: {
 		list() {
-			let keyName = '';
-			switch (this.$route.name) {
-				case 'news':
-					keyName = "news";
-					break;
-				case 'jobs':
-					keyName = "jobs";
-					break;
-				case 'ask':
-					keyName = "ask";
-					break;
-			}
-			if (!keyName) return [];
-			return this.$store.state[keyName];
+			return this.$store.state.list;
 		},
 	},
 }
