@@ -6,21 +6,25 @@
 
 <script>
 import ListItem from '../components/ListItem.vue';
-import bus from '../utils/bus.js';
+// import bus from '../utils/bus.js';
+import ListMixin from '../mixins/ListMixin';
 
 export default {
   components: {
     ListItem,
   },
-  created() {
-    bus.$emit('start:spinner');
-    this.$store.dispatch("FETCH_NEWS")
-      .then(() => {
-        bus.$emit('end:spinner');
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  },
+  mixins: [
+    ListMixin,
+  ],
+  // created() {
+  //   bus.$emit('start:spinner');
+  //   this.$store.dispatch("FETCH_NEWS")
+  //     .then(() => {
+  //       bus.$emit('end:spinner');
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // },
 };
 </script>
