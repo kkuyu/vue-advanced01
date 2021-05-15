@@ -9,7 +9,7 @@ import {
 
 export default {
 	FETCH_NEWS(context) {
-		fetchNewsList()
+		return fetchNewsList()
 			.then((response) => {
 				console.log(response.data);
 				context.commit("SET_NEWS", response.data);
@@ -18,28 +18,43 @@ export default {
 			.catch((error) => console.log(error));
 	},
 	FETCH_JOBS({ commit }) {
-		fetchJobsList()
-			.then(({ data }) => commit("SET_JOBS", data))
+		return fetchJobsList()
+			.then((response) => {
+        commit("SET_JOBS", response.data);
+        return response;
+      })
 			.catch((error) => console.log(error));
 	},
 	FETCH_ASK({ commit }) {
-		fetchAskList()
-			.then(({ data }) => commit("SET_ASK", data))
+		return fetchAskList()
+			.then((response) => {
+        commit("SET_ASK", response.data);
+        return response;
+      })
 			.catch((error) => console.log(error));
 	},
   FETCH_LIST({ commit }, pageName) {
-    fetchList(pageName)
-      .then(({ data }) => commit("SET_LIST", data))
+    return fetchList(pageName)
+      .then((response) => {
+        commit("SET_LIST", response.data);
+        return response;
+      })
 			.catch((error) => console.log(error));
   },
 	FETCH_USER({ commit }, name) {
-		fetchUserInfo(name)
-			.then(({ data }) => commit("SET_USER", data))
+		return fetchUserInfo(name)
+			.then((response) => {
+        commit("SET_USER", response.data);
+        return response;
+      })
 			.catch((error) => console.log(error));
 	},
 	FETCH_ITEM({ commit }, id) {
-		fetchCommentInfo(id)
-			.then(({ data }) => commit("SET_ITEM", data))
+		return fetchCommentInfo(id)
+			.then((response) => {
+        commit("SET_ITEM", response.data);
+        return response;
+      })
 			.catch((error) => console.log(error));
 	},
 };
